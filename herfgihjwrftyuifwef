@@ -42,7 +42,6 @@ ToggleStroke.Parent = ToggleButton
 
 ToggleButton.Parent = ToggleScreenGui
 
--- Функция для перемещения кнопки Trade
 local toggleDragging = false
 local toggleDragInput
 local toggleDragStart
@@ -83,7 +82,6 @@ UserInputService.InputChanged:Connect(function(input)
     end
 end)
 
--- Функция для создания основного GUI
 local function CreateTradeGUI()
     local ScreenGui = Instance.new("ScreenGui")
     ScreenGui.Name = "TradeRequestButton"
@@ -91,7 +89,7 @@ local function CreateTradeGUI()
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.IgnoreGuiInset = true
     ScreenGui.ResetOnSpawn = false
-    ScreenGui.DisplayOrder = 999999 -- Максимально высокий приоритет
+    ScreenGui.DisplayOrder = 999999 
 
     local MainFrame = Instance.new("Frame")
     MainFrame.Name = "TradeControlPanel"
@@ -102,7 +100,6 @@ local function CreateTradeGUI()
     MainFrame.BorderSizePixel = 0
     MainFrame.ZIndex = 999999
 
-    -- Создаем заголовок для перетаскивания
     local DragFrame = Instance.new("Frame")
     DragFrame.Name = "DragFrame"
     DragFrame.Size = UDim2.new(1, 0, 0, 25)
@@ -158,7 +155,6 @@ local function CreateTradeGUI()
 
     MainFrame.Parent = ScreenGui
 
-    -- Функция для перемещения GUI
     local dragging = false
     local dragInput
     local dragStart
@@ -198,7 +194,6 @@ local function CreateTradeGUI()
         end
     end)
 
-    -- Функция для закрытия GUI
    CloseButton.MouseButton1Click:Connect(function()
     ScreenGui:Destroy()
 
@@ -208,7 +203,7 @@ local function CreateTradeGUI()
     ToggleButton.Visible = true
     isGUIOpen = false
 end)
-    -- Эффекты при наведении на кнопку закрытия
+  
     CloseButton.MouseEnter:Connect(function()
         CloseButton.BackgroundColor3 = Color3.fromRGB(200, 60, 60)
     end)
